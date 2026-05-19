@@ -13,6 +13,11 @@ WarungKu adalah transformasi digital menyeluruh untuk toko kecil dan warung di I
 - **Keamanan Berlapis**: Kunci PIN aplikasi (`12345`) dan sandi khusus area pemilik (`winwin`) untuk menjaga kerahasiaan data Laporan, Gudang, dan AI.
 - **Desain Premium**: Menggunakan antarmuka *Glassmorphism* modern dengan dukungan penuh fitur *Dark Mode*.
 
+## 🔐 Akses Login (PENTING)
+Untuk mencoba dan menguji aplikasi ini, gunakan sandi berikut saat menemukan layar terkunci:
+- **PIN Kasir (Aplikasi Awal)**: `12345`
+- **Sandi Pemilik (Gudang, Laporan, AI)**: `winwin`
+
 ## 🛠️ Tech Stack
 - **Frontend**: React.js, Vite, Tailwind CSS v4, Lucide Icons, React Markdown
 - **Backend**: Node.js, Express, `@google/genai` (Model: Gemini 2.5 Flash)
