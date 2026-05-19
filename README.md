@@ -1,76 +1,75 @@
-# UMKM Pintar 🏪
+# WarungKu 🏪
+**Sistem Kasir Pintar & Asisten Bisnis Berbasis AI untuk UMKM Indonesia**
 
-**Asisten Pintar untuk Warung & Toko Kecil**
-Dibuat untuk kompetisi #JuaraVibeCoding 2026 oleh Google.
+Dibuat khusus untuk kompetisi **#JuaraVibeCoding 2026** oleh Google.
 
-UMKM Pintar adalah aplikasi web yang membantu pemilik UMKM di Indonesia dengan fitur:
-1. **Tanya AI:** Konsultasi bisnis langsung dengan Gemini.
-2. **Kalkulator Untung Rugi:** Hitung estimasi keuntungan dan margin dengan cepat.
-3. **Generator Caption:** Buat caption promosi otomatis untuk berbagai media sosial.
+WarungKu adalah transformasi digital menyeluruh untuk toko kecil dan warung di Indonesia. Tidak hanya sekadar sistem kasir (Point of Sale), aplikasi ini dilengkapi dengan Asisten AI canggih yang bertindak sebagai konsultan bisnis pribadi yang tahu persis kondisi keuangan warung Anda.
+
+## ✨ Fitur Utama
+- **Sistem Kasir (POS) Interaktif**: Antarmuka penjualan visual yang *mobile-friendly*, perhitungan otomatis, dan pencarian produk yang instan.
+- **Manajemen Gudang & Stok Pintar**: Pelacakan stok barang secara *real-time*. Sistem akan mencegah penjualan jika stok habis. Terproteksi dengan kata sandi khusus pemilik.
+- **Laporan Keuangan & Analitik**: Visualisasi data pendapatan, grafik tren penjualan, pemfilteran berdasarkan tanggal, dan kemampuan *export* ke file CSV.
+- **Asisten AI (Konsultan Bisnis)**: Didukung oleh **Gemini 2.5 Flash**, Asisten AI ini tidak hanya menjawab pertanyaan, tapi juga menganalisis total pendapatan dan metrik warung Anda untuk memberikan saran bisnis yang sangat terpersonalisasi.
+- **Keamanan Berlapis**: Kunci PIN aplikasi (`12345`) dan sandi khusus area pemilik (`winwin`) untuk menjaga kerahasiaan data Laporan, Gudang, dan AI.
+- **Desain Premium**: Menggunakan antarmuka *Glassmorphism* modern dengan dukungan penuh fitur *Dark Mode*.
 
 ## 🛠️ Tech Stack
-- **Frontend:** React, Vite, Tailwind CSS, Lucide React
-- **Backend:** Node.js, Express, @google/genai (Gemini 2.0 Flash)
-- **Deployment:** Docker, Google Cloud Run
+- **Frontend**: React.js, Vite, Tailwind CSS v4, Lucide Icons, React Markdown
+- **Backend**: Node.js, Express, `@google/genai` (Model: Gemini 2.5 Flash)
+- **Deployment**: Docker, Google Cloud Run
 
-## 🚀 Cara Menjalankan Lokal
+---
 
-### Prasyarat
+## 🚀 Cara Menjalankan Lokal (Bagi Pengembang)
+
+**Prasyarat:**
 - Node.js (v18+)
-- Gemini API Key ([Dapatkan di Google AI Studio](https://aistudio.google.com/app/apikey))
+- Gemini API Key (Dapatkan di Google AI Studio)
 
-### Setup
-1. **Clone/Download** repository ini.
-2. **Setup Backend:**
-   \`\`\`bash
-   cd backend
-   npm install
-   cp .env.example .env
-   \`\`\`
-   Edit file `.env` di dalam folder \`backend\` dan masukkan `GEMINI_API_KEY` Anda.
-3. **Setup Frontend:**
-   \`\`\`bash
-   cd ../frontend
-   npm install
-   \`\`\`
+**1. Setup Backend:**
+```bash
+cd backend
+npm install
+cp .env.example .env
+```
+Edit file `.env` di dalam folder `backend` dan masukkan `GEMINI_API_KEY` Anda.
 
-### Menjalankan Server Development
+**2. Setup Frontend:**
+```bash
+cd ../frontend
+npm install
+```
+
+**3. Menjalankan Server Development:**
 Buka 2 terminal terpisah:
 
 **Terminal 1 (Backend):**
-\`\`\`bash
+```bash
 cd backend
 npm run dev
 # Backend akan berjalan di http://localhost:8080
-\`\`\`
+```
 
 **Terminal 2 (Frontend):**
-\`\`\`bash
+```bash
 cd frontend
 npm run dev
-# Frontend akan berjalan (biasanya di http://localhost:5173)
-\`\`\`
+# Frontend akan berjalan di http://localhost:5173
+```
+
+---
 
 ## ☁️ Cara Deploy ke Google Cloud Run
 
-Proyek ini sudah dilengkapi dengan \`Dockerfile\` multi-stage yang siap di-deploy ke Cloud Run.
+Proyek ini sudah dilengkapi dengan `Dockerfile` multi-stage yang menggabungkan Frontend dan Backend menjadi satu mesin (*container*) yang siap di-deploy ke Cloud Run.
 
-### Langkah-langkah:
-1. Pastikan Anda sudah menginstall [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) dan login ke akun Google Cloud Anda.
-2. Buka terminal di root direktori proyek ini (di mana terdapat file \`Dockerfile\`).
-3. Set project ID Google Cloud Anda (ganti \`YOUR_PROJECT_ID\`):
-   \`\`\`bash
-   gcloud config set project YOUR_PROJECT_ID
-   \`\`\`
-4. Deploy langsung menggunakan gcloud run (Ganti \`YOUR_API_KEY\`):
-   \`\`\`bash
-   gcloud run deploy umkm-pintar \
-     --source . \
-     --region asia-southeast2 \
-     --allow-unauthenticated \
-     --set-env-vars="GEMINI_API_KEY=YOUR_API_KEY"
-   \`\`\`
-5. Tunggu proses build dan deploy selesai. Google Cloud Run akan memberikan URL publik untuk aplikasi Anda.
+**Langkah Termudah (Via GitHub):**
+1. *Push* kode ini ke repositori GitHub Anda.
+2. Buka **Google Cloud Console** > **Cloud Run** > **Create Service**.
+3. Pilih opsi **Continuously deploy from a source repository**, lalu sambungkan repositori GitHub Anda.
+4. Di bagian *Build Configuration*, pilih **Dockerfile**.
+5. Di bagian *Variables & Secrets*, tambahkan *Environment Variable* baru: `GEMINI_API_KEY` dan isi dengan API Key Anda.
+6. Centang **Allow unauthenticated invocations**.
+7. Klik **Deploy**.
 
----
-*Dibuat dengan ❤️ untuk #JuaraVibeCoding 2026. Powered by Google Gemini.*
+*Dibuat dengan ❤️ untuk UMKM Indonesia. Powered by Google Gemini.*
